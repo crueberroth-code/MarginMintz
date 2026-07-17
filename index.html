@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="MarginMint is a fast, private calculator for marketplace sellers to price products profitably."
+    />
+    <title>MarginMint — Seller Profit Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="MarginMint home">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <span>MarginMint</span>
+      </a>
+      <nav aria-label="Main navigation">
+        <a href="#calculator">Calculator</a>
+        <a href="#how-it-works">How it works</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">PRICE WITH CONFIDENCE</p>
+          <h1>Know what you’ll <em>actually</em> make.</h1>
+          <p class="hero-text">
+            A simple profit calculator for handmade and marketplace sellers. Account for every fee before you publish a listing.
+          </p>
+          <a class="button button-primary" href="#calculator">Calculate my profit <span aria-hidden="true">↓</span></a>
+          <p class="privacy-note"><span aria-hidden="true">●</span> Private by default — your numbers stay in your browser.</p>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="receipt-card">
+            <div class="receipt-top"><span>ORDER #148</span><span>PAID</span></div>
+            <div class="receipt-price">$42.00</div>
+            <div class="receipt-line"><span>Costs & fees</span><span>− $17.48</span></div>
+            <div class="receipt-profit"><span>YOUR PROFIT</span><span>$24.52</span></div>
+          </div>
+          <div class="floating-tag">+58.4% margin</div>
+        </div>
+      </section>
+
+      <section class="calculator-section" id="calculator" aria-labelledby="calculator-title">
+        <div class="section-heading">
+          <p class="eyebrow">THE CALCULATOR</p>
+          <h2 id="calculator-title">Price your next listing</h2>
+          <p>Every input is optional. Start with your selling price and adjust the editable fee assumptions for your shop.</p>
+        </div>
+
+        <div class="calculator-shell">
+          <form class="calculator-form" id="profit-form" novalidate>
+            <div class="form-topline">
+              <h3>Order details</h3>
+              <button class="text-button" type="button" id="reset-button">Reset</button>
+            </div>
+
+            <div class="input-grid input-grid-featured">
+              <label class="field field-featured">
+                <span>Selling price</span>
+                <span class="input-wrap currency"><span>$</span><input id="sale-price" name="salePrice" inputmode="decimal" type="number" min="0" step="0.01" value="42.00" /></span>
+              </label>
+              <label class="field field-featured">
+                <span>Shipping charged</span>
+                <span class="input-wrap currency"><span>$</span><input id="shipping-charged" name="shippingCharged" inputmode="decimal" type="number" min="0" step="0.01" value="5.00" /></span>
+              </label>
+            </div>
+
+            <div class="field-group">
+              <div class="group-label"><span>Product costs</span><span>What it takes to fulfill one order</span></div>
+              <div class="input-grid">
+                <label class="field">
+                  <span>Materials / product</span>
+                  <span class="input-wrap currency"><span>$</span><input id="product-cost" name="productCost" inputmode="decimal" type="number" min="0" step="0.01" value="9.50" /></span>
+                </label>
+                <label class="field">
+                  <span>Packaging</span>
+                  <span class="input-wrap currency"><span>$</span><input id="packaging-cost" name="packagingCost" inputmode="decimal" type="number" min="0" step="0.01" value="1.25" /></span>
+                </label>
+                <label class="field">
+                  <span>Actual shipping cost</span>
+                  <span class="input-wrap currency"><span>$</span><input id="shipping-cost" name="shippingCost" inputmode="decimal" type="number" min="0" step="0.01" value="4.80" /></span>
+                </label>
+                <label class="field">
+                  <span>Other costs</span>
+                  <span class="input-wrap currency"><span>$</span><input id="other-cost" name="otherCost" inputmode="decimal" type="number" min="0" step="0.01" value="0" /></span>
+                </label>
+              </div>
+            </div>
+
+            <details class="fees-panel" open>
+              <summary>
+                <span><strong>Fees & marketing</strong><small>Editable example assumptions</small></span>
+                <span class="chevron" aria-hidden="true">⌄</span>
+              </summary>
+              <div class="input-grid fees-grid">
+                <label class="field">
+                  <span>Marketplace fee</span>
+                  <span class="input-wrap suffix"><input id="marketplace-fee" name="marketplaceFee" inputmode="decimal" type="number" min="0" step="0.01" value="6.50" /><span>%</span></span>
+                </label>
+                <label class="field">
+                  <span>Payment processing</span>
+                  <span class="input-wrap suffix"><input id="payment-rate" name="paymentRate" inputmode="decimal" type="number" min="0" step="0.01" value="3.00" /><span>%</span></span>
+                </label>
+                <label class="field">
+                  <span>Payment flat fee</span>
+                  <span class="input-wrap currency"><span>$</span><input id="payment-flat" name="paymentFlat" inputmode="decimal" type="number" min="0" step="0.01" value="0.25" /></span>
+                </label>
+                <label class="field">
+                  <span>Listing fee</span>
+                  <span class="input-wrap currency"><span>$</span><input id="listing-fee" name="listingFee" inputmode="decimal" type="number" min="0" step="0.01" value="0.20" /></span>
+                </label>
+                <label class="field">
+                  <span>Ads / marketing</span>
+                  <span class="input-wrap suffix"><input id="ad-rate" name="adRate" inputmode="decimal" type="number" min="0" step="0.01" value="0" /><span>%</span></span>
+                </label>
+                <label class="field">
+                  <span>Tax set-aside</span>
+                  <span class="input-wrap suffix"><input id="tax-rate" name="taxRate" inputmode="decimal" type="number" min="0" step="0.01" value="0" /><span>%</span></span>
+                </label>
+              </div>
+              <p class="fee-note">Fee rules and tax obligations vary by country, platform, and shop. Verify the values above against your account before relying on a result.</p>
+            </details>
+          </form>
+
+          <aside class="results-card" aria-live="polite" aria-label="Profit calculation results">
+            <div class="result-header">
+              <div>
+                <p class="result-label">ESTIMATED NET PROFIT</p>
+                <p class="profit-value" id="net-profit">$0.00</p>
+              </div>
+              <div class="margin-badge" id="margin-badge">0%<small>margin</small></div>
+            </div>
+            <div class="result-message" id="profit-message">Add your costs to see the full picture.</div>
+            <div class="bar-chart" aria-hidden="true">
+              <div class="bar-labels"><span>Revenue</span><span id="revenue-bar-label">$0.00</span></div>
+              <div class="bar-track"><div class="bar-fill revenue-fill" id="revenue-bar"></div></div>
+              <div class="bar-labels"><span>Costs & fees</span><span id="cost-bar-label">$0.00</span></div>
+              <div class="bar-track"><div class="bar-fill costs-fill" id="cost-bar"></div></div>
+              <div class="bar-labels"><span>Profit</span><span id="profit-bar-label">$0.00</span></div>
+              <div class="bar-track"><div class="bar-fill profit-fill" id="profit-bar"></div></div>
+            </div>
+            <dl class="breakdown-list">
+              <div><dt>Order revenue</dt><dd id="revenue-value">$0.00</dd></div>
+              <div><dt>Product & fulfillment</dt><dd id="fulfillment-value">−$0.00</dd></div>
+              <div><dt>Marketplace & payment fees</dt><dd id="fees-value">−$0.00</dd></div>
+              <div><dt>Marketing & tax set-aside</dt><dd id="tax-value">−$0.00</dd></div>
+              <div class="break-even"><dt>Break-even selling price</dt><dd id="break-even-value">$0.00</dd></div>
+            </dl>
+            <div class="results-actions">
+              <button class="button button-dark" type="button" id="copy-button">Copy summary</button>
+              <button class="button button-quiet" type="button" id="save-button">Save scenario</button>
+            </div>
+            <p class="saved-status" id="saved-status" role="status"></p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="saved-section" id="saved-section" hidden aria-labelledby="saved-title">
+        <div class="saved-heading">
+          <div>
+            <p class="eyebrow">YOUR BROWSER</p>
+            <h2 id="saved-title">Saved scenarios</h2>
+          </div>
+          <button class="text-button danger-button" type="button" id="clear-saved-button">Clear all</button>
+        </div>
+        <div class="saved-list" id="saved-list"></div>
+      </section>
+
+      <section class="how-section" id="how-it-works">
+        <div>
+          <p class="eyebrow">LESS GUESSING, BETTER PRICING</p>
+          <h2>Made for the moment before you hit publish.</h2>
+        </div>
+        <div class="benefits">
+          <article>
+            <span class="benefit-number">01</span>
+            <h3>See the real number</h3>
+            <p>Bring materials, packaging, shipping, platform fees, and ads into one clear calculation.</p>
+          </article>
+          <article>
+            <span class="benefit-number">02</span>
+            <h3>Adjust for your shop</h3>
+            <p>Every fee is editable, so the calculator works with your marketplace and your location.</p>
+          </article>
+          <article>
+            <span class="benefit-number">03</span>
+            <h3>Keep useful scenarios</h3>
+            <p>Save pricing ideas in your browser and return to them while you compare products.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">M</span><span>MarginMint</span></a>
+      <p>Built to make pricing less mysterious.</p>
+      <p>Estimates only — not financial or tax advice.</p>
+    </footer>
+    <script src="app.js"></script>
+  </body>
+</html>
